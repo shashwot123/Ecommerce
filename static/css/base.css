@@ -1,0 +1,52 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: blanchedalmond;
+}
+
+/*Links Styles*/
+a {
+    text-decoration: none;
+    color: mediumseagreen;
+}
+
+a:hover {
+    text-decoration: none;
+    color: brown;
+}
+
+/*Header Styles*/
+header {
+    width: 100%;
+    background-color: thistle;
+    color: white;
+    padding: 1rem;
+    font-size: x-large;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/*Navbar Styles*/
+.navbar {
+    margin-left: 1rem;
+    color: white;
+    text-decoration: none;
+}
+
+.navbar a {
+  text-decoration: none;
+  margin-right: 1rem;
+  font-size: large;
+}
+

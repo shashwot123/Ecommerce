@@ -3,17 +3,17 @@
 {% block title %}Sign Up | My Ecommerce Site{% endblock %}
 
 {% block content %}
-<div class="min-h-screen flex items-center justify-center bg-gray-100">
-    <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
-        <h1 class="text-2xl font-bold mb-6 text-center">Sign Up</h1>
-        <form method="POST" class="space-y-4">
+<div>
+    <div>
+        <h1>Sign Up</h1>
+        <form method="POST">
             {% csrf_token %}
 
             <div>
                 {{ form.username.label_tag }}
                 {{ form.username }}
                 {% if form.username.errors %}
-                    <p class="text-sm text-red-600 mt-1">{{ form.username.errors }}</p>
+                    <p>{{ form.username.errors }}</p>
                 {% endif %}
             </div>
 
@@ -21,7 +21,7 @@
                 {{ form.email.label_tag }}
                 {{ form.email }}
                 {% if form.email.errors %}
-                    <p class="text-sm text-red-600 mt-1">{{ form.email.errors }}</p>
+                    <p>{{ form.email.errors }}</p>
                 {% endif %}
             </div>
 
@@ -29,7 +29,7 @@
                 {{ form.password1.label_tag }}
                 {{ form.password1 }}
                 {% if form.password1.errors %}
-                    <p class="text-sm text-red-600 mt-1">{{ form.password1.errors }}</p>
+                    <p>{{ form.password1.errors }}</p>
                 {% endif %}
             </div>
 
@@ -37,11 +37,11 @@
                 {{ form.password2.label_tag }}
                 {{ form.password2 }}
                 {% if form.password2.errors %}
-                    <p class="text-sm text-red-600 mt-1">{{ form.password2.errors }}</p>
+                    <p>{{ form.password2.errors }}</p>
                 {% endif %}
             </div>
 
-            <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition">
+            <button type="submit">
                 Sign Up
             </button>
         </form>
