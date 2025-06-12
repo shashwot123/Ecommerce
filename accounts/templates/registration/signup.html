@@ -5,45 +5,62 @@
 {% block content %}
 <div>
     <div>
-        <h1>Sign Up</h1>
-        <form method="POST">
+        <form class="signup-form" method="POST">
             {% csrf_token %}
+            <h2>Sign Up</h2>
 
-            <div>
-                {{ form.username.label_tag }}
-                {{ form.username }}
-                {% if form.username.errors %}
-                    <p>{{ form.username.errors }}</p>
-                {% endif %}
+            <div class="form-group">
+                <div class="form-label">
+                    {{ form.username.label_tag }}
+                </div>
+                <div class="form-input">
+                    {{ form.username }}
+                    {% if form.username.errors %}
+                        <p>{{ form.username.errors }}</p>
+                    {% endif %}
+                </div>
             </div>
 
-            <div>
-                {{ form.email.label_tag }}
-                {{ form.email }}
-                {% if form.email.errors %}
-                    <p>{{ form.email.errors }}</p>
-                {% endif %}
+            <div class="form-group">
+                <div class="form-label">
+                    {{ form.email.label_tag }}
+                </div>
+                <div class="form-input">
+                    {{ form.email }}
+                    {% if form.email.errors %}
+                        <p>{{ form.email.errors }}</p>
+                    {% endif %}
+                </div>
             </div>
 
-            <div>
-                {{ form.password1.label_tag }}
-                {{ form.password1 }}
-                {% if form.password1.errors %}
-                    <p>{{ form.password1.errors }}</p>
-                {% endif %}
+            <div class="form-group">
+                <div class="form-label">
+                    {{ form.password1.label_tag }}
+                </div>
+                <div class="form-input">
+                    {{ form.password1 }}
+                    {% if form.password1.errors %}
+                        <p>{{ form.password1.errors }}</p>
+                    {% endif %}
+                </div>
             </div>
 
-            <div>
-                {{ form.password2.label_tag }}
-                {{ form.password2 }}
-                {% if form.password2.errors %}
-                    <p>{{ form.password2.errors }}</p>
-                {% endif %}
+            <div class="form-group">
+                <div class="form-label">
+                    {{ form.password2.label_tag }}
+                </div>
+                <div class="form-input">
+                    {{ form.password2 }}
+                    {% if form.password2.errors %}
+                        <p>{{ form.password2.errors }}</p>
+                    {% endif %}
+                </div>
             </div>
-
-            <button type="submit">
-                Sign Up
-            </button>
+            <div class="form-action">
+                <button type="submit" class="btn">
+                    Sign Up
+                </button>
+            </div>
         </form>
     </div>
 </div>

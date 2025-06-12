@@ -17,10 +17,19 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from accounts import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path("", views.home, name="home"),
     #looks in the accounts app's urls.py
     path("accounts/", include("accounts.urls")),
+    #for admin dashboard
     path("admin/", admin.site.urls),
+    path("products/", include("product.urls")),
+    path("cart/", include("cart.urls")),
 ]
+
+#serve uploaded images during development
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

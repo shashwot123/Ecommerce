@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}All Products | My Ecommerce Site{% endblock %}
+
+{% block content %}
+    <div class="product-grid">
+        {% for product in page_obj %}
+            <div class="product-card">
+                <img class="product-image" src="{{ product.image.url }}" alt="{{ product.name }}">
+                <a href="{% url 'product_detail' product.id %}"><h2>{{ product.name }}</h2></a>
+                <p>{{ product.description }}</p>
+                <p>Rs. {{ product.price }}</p>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="pagination">
+        {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo; First </a>
+            <a href="?page={{ page_obj.previous_page_number }}"> Previous</a>
+        {% endif %}
+        <span class="page-info">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+        </span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">Next</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">Last &raquo;</a>
+        {% endif %}
+    </div>
+{% endblock %}

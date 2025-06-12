@@ -4,17 +4,12 @@ from django.contrib.auth.models import User
 
 class CustomUserCreationForm(UserCreationForm):
     #the default django signup form doesnot have a email field
-    # so adding it explicitly 
+    #so adding it explicitly 
     email = forms.EmailField(required=True)
 
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        for field in self.fields.values():
-            field.widget.attrs.update({
-                'class': 'w-full border border-gray-300 rounded px-3 py-2',
-            })
-
+    #to provide metadata to the form like what model to use and fields to include
     class Meta:
+        #built-in User model
         model = User
         fields = ("username", "email", "password1", "password2")
 

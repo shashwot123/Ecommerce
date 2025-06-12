@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}All Products | My Ecommerce Site{% endblock %}
+
+{% block content %}
+    <h2>Your Cart</h2>
+    {% if cart %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Image</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Subtotal</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!--Iterate through each product in the cart dictionary-->
+                {% for item in cart.values %}
+                    <tr>
+                        <td><img class="cart-image" src="{{ item.image }}" alt="{{ item.name }}"></td>
+                        <td>{{ item.name }}</td>
+                        <td>{{ item.price }}</td>
+                        <td>{{ item.quantity }}</td>
+                        <td>Rs. {{ item.subtotal }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+{% endblock %}

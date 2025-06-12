@@ -5,23 +5,33 @@
 {% block content %}
 <div>
     <div>
-        <h1>Login</h1>
-        <form method="POST">
+        <form class="signup-form" method="POST">
             {% csrf_token %}
+            <h2>Login</h2>
 
-            <div>
-                {{ form.username.label_tag }}
-                {{ form.username }}
+            <div class="form-group">
+                <div class="form-label">
+                    {{ form.username.label_tag }}
+                </div>
+                <div class="form-input">
+                    {{ form.username }}
+                </div>
             </div>
 
-            <div>
-                {{ form.password.label_tag }}
-                {{ form.password }}
+            <div class="form-group">
+                <div class="form-label">
+                    {{ form.password.label_tag }}
+                </div>
+                <div class="form-input">
+                    {{ form.password }}
+                </div>
             </div>
-
-            <button type="submit">
-                Login
-            </button>
+            
+            <div class="form-action">
+                <button type="submit" class="btn">
+                    Login
+                </button>
+            </div>
         </form>
     </div>
 </div>

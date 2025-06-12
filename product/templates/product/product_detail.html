@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %} Product Details | My Ecommerce Site{% endblock %}
+
+{% block content %}
+    <div class="product-card">
+        <img class="product-image" src="{{ product.image.url }}" alt="{{ product.name }}">
+        <a href="{% url 'product_detail' product.id %}"><h2>{{ product.name }}</h2></a>
+        <p>{{ product.description }}</p>
+        <p>Rs. {{ product.price }}</p>
+    </div>
+{% endblock %}
