@@ -4,7 +4,7 @@
 
 {% block content %}
     <h2>Your Cart</h2>
-    {% if cart %}
+    {% if cart_items %}
         <table>
             <thead>
                 <tr>
@@ -13,20 +13,39 @@
                     <th>Price</th>
                     <th>Quantity</th>
                     <th>Subtotal</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
                 <!--Iterate through each product in the cart dictionary-->
-                {% for item in cart.values %}
+                {% for item in cart_items %}
                     <tr>
                         <td><img class="cart-image" src="{{ item.image }}" alt="{{ item.name }}"></td>
                         <td>{{ item.name }}</td>
                         <td>{{ item.price }}</td>
-                        <td>{{ item.quantity }}</td>
+                        <td>
+                            <form method="post" action="{% url 'update_cart_quantity' item.product_id %}">
+                                {% csrf_token %}
+                                <input type="number" name="quantity" min="1" value="{{ item.quantity }}">
+                                <button type="submit">Update</button>
+                            </form>
+                        </td>
                         <td>Rs. {{ item.subtotal }}</td>
+                        <td>
+                            <form method="post" action="{% url 'remove_from_cart' item.product_id %}">
+                                {% csrf_token %}
+                                <button type="submit">Remove Item</button>
+                            </form>
+                        </td>
                     </tr>
                 {% endfor %}
             </tbody>
         </table>
+        <tr>
+            <td>Total: </td>
+            <td> {{total}} </td>
+        </tr>
+    {% else %}
+        <p>Your Cart is empty.</p>
     {% endif %}
 {% endblock %}

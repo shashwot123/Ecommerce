@@ -17,7 +17,7 @@ body {
 /*Links Styles*/
 a {
     text-decoration: none;
-    color: mediumseagreen;
+    color: rgb(238, 158, 158);
 }
 
 a:hover {
@@ -28,7 +28,7 @@ a:hover {
 /*Header Styles*/
 header {
     width: 100%;
-    background-color: thistle;
+    background-color: rgb(35, 82, 49);
     color: white;
     padding: 1rem;
     font-size: x-large;
